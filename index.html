@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anisha's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --dark-bg: #1A2526;
+            --white-text: #FFFFFF;
+            --accent-blue: #4A90E2;
+            --light-gray: #A0A0A0;
+            --wine-purple: #630330;
+            --beige: #F5F5DC;
+            --dark-beige: #E8E6B7;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,45 +25,50 @@
         }
 
         body {
+            background: var(--dark-bg);
+            color: var(--white-text);
             line-height: 1.6;
-            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Navigation */
-        nav {
-            background: #2c3e50;
-            color: #fff;
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            background: var(--beige);
             position: fixed;
             width: 100%;
             top: 0;
-            padding: 1rem;
             z-index: 1000;
+            height: 50px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
         }
 
         nav ul li {
-            margin: 0 1.5rem;
+            margin-left: 1.5rem;
         }
 
         nav ul li a {
-            color: #fff;
+            color: #000000;
             text-decoration: none;
-            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1rem;
         }
 
         nav ul li a:hover {
-            color: #3498db;
+            color: var(--accent-blue);
         }
 
-        /* Sections */
         section {
-            padding: 5rem 2rem;
-            min-height: 100vh;
+            padding: 4rem 2rem;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -60,20 +77,152 @@
         }
 
         #home {
-            background: linear-gradient(to right, #3498db, #8e44ad);
-            color: #fff;
+            padding-top: 6rem;
+            background: var(--wine-purple);
+        }
+
+        #home h1, #home h2, #home p, #home .email a {
+            color: var(--beige);
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+        }
+
+        #home h2 {
+            font-size: 1.5rem;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+        }
+
+        #home .email a {
+            font-size: 1.2rem;
+        }
+
+        .home-container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .home-text, .home-image {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .home-text {
+            text-align: left;
+            position: relative;
+        }
+
+        .home-text .text-wrapper {
+            display: inline-block;
+            white-space: nowrap;
+            animation: slide 2s ease-out forwards;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .home-text h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .home-text h2 {
+            margin-bottom: 1rem;
+        }
+
+        .home-text p {
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 3rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--beige);
+            font-size: 2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .email {
+            margin-top: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .email a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .email a:hover {
+            color: var(--accent-blue);
+        }
+
+        .home-image {
+            margin-left: 153px;
+        }
+
+        .home-image img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid var(--beige);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         #about {
-            background: #f4f4f4;
+            background: var(--beige);
         }
 
         #projects {
-            background: #fff;
+            background: var(--beige);
         }
 
-        #certificates {
-            background: #ecf0f1;
+        #skills, #certificates {
+            background: var(--dark-beige);
+        }
+
+        #about h2, #skills h2, #projects h2, #certificates h2 {
+            color: #000000;
+        }
+
+        #about p {
+            color: #000000;
+            font-size: 1.2rem;
+        }
+
+        .project-card p, .certificate-card p, .skill-card p {
+            color: var(--light-gray);
+        }
+
+        .project-card h3 a, .certificate-card h3 a {
+            color: var(--white-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-card h3 a:hover, .certificate-card h3 a:hover {
+            color: var(--accent-blue);
         }
 
         h1, h2 {
@@ -81,170 +230,233 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         p {
-            max-width: 600px;
+            max-width: 500px;
             margin-bottom: 1rem;
+            color: var(--light-gray);
         }
 
-        /* Projects and Certificates Grid */
-        .project-grid, .certificate-grid {
+        .project-grid, .certificate-grid, .skill-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 1rem auto;
         }
 
-        .project-card, .certificate-card {
-            background: #ecf0f1;
-            padding: 1.5rem;
+        .project-card, .certificate-card, .skill-card {
+            background: var(--wine-purple);
+            padding: 1rem;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--accent-blue);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
         }
 
-        .project-card:hover, .certificate-card:hover {
+        .project-card:hover, .certificate-card:hover, .skill-card:hover {
             transform: translateY(-5px);
+            border-color: var(--white-text);
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             h2 {
-                font-size: 1.5rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+                font-size: 1.3rem;
             }
 
             nav ul li {
-                margin: 0.5rem 0;
+                margin-left: 0.5rem;
+            }
+
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+
+            .home-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-text {
+                text-align: center;
+            }
+
+            .home-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .home-text h2 {
+                font-size: 1.2rem;
+            }
+
+            .home-text p {
+                font-size: 1rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            .social-icons a {
+                font-size: 1.8rem;
+            }
+
+            .email {
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .home-image {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .home-image img {
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Home Section -->
     <section id="home">
-        <h1>Welcome to Anisha's Portfolio</h1>
-        <p>Creating web experiences that blend innovation and elegance.</p>
+        <div class="home-container">
+            <div class="home-text">
+                <div class="text-wrapper">
+                    <h1>Anisha K</h1>
+                    <h2>Data Science Student</h2>
+                </div>
+                <p>Computer Science and Engineering student specializing in Data Science, passionate about leveraging data and technology to solve real-world problems.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/anisha-kasirajan-628303325/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Anisha-0401" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/Anisha-0401/Resume/blob/2a9f5e3be1b1f4959255ce37fe24bd74b4520ceb/Anisha%20Resume.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
+                </div>
+                <p class="email"><a href="mailto:anisharajana16@gmail.com">anisharajana16@gmail.com</a></p>
+            </div>
+            <div class="home-image">
+                <img src="Pic.jpeg" alt="Anisha's profile picture">
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I'm Anisha, a web developer with a passion for creating user-friendly and visually appealing websites. I specialize in HTML, CSS, and JavaScript, and I'm always eager to learn new technologies.</p>
+        <p>I am a passionate and driven Computer Science and Engineering student specializing in Data Science. I have a deep interest in applying analytical and data-driven approaches to solve complex, real-world problems. My academic journey has equipped me with a solid foundation in machine learning, statistical modeling, and data visualization. I enjoy working on hands-on projects where I can transform raw data into meaningful insights that inform decision-making and innovation.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skill-grid">
+            <div class="skill-card"><h3>Python</h3></div>
+            <div class="skill-card"><h3>R</h3></div>
+            <div class="skill-card"><h3>SQL</h3></div>
+            <div class="skill-card"><h3>PowerBI</h3></div>
+            <div class="skill-card"><h3>Tableau</h3></div>
+            <div class="skill-card"><h3>Microsoft Excel</h3></div>
+            <div class="skill-card"><h3>HTML</h3></div>
+            <div class="skill-card"><h3>CSS</h3></div>
+            <div class="skill-card"><h3>AI and ML</h3></div>
+        </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2>My Projects</h2>
+        <h2>Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>Project 1</h3>
-                <p>A responsive e-commerce website built with HTML, CSS, and JavaScript.</p>
+                <h3><a href="https://github.com/Anisha-0401/SignVerse-Sign_Language_Chatbot.git" target="_blank">Sign Language Chatbot</a></h3>
+                <p>AI chatbot enabling seamless communication for people using sign language.</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+                <h3><a href="https://github.com/Anisha-0401/Unique_Finds-ecommercegiftshop.git" target="_blank">Ecommerce Gift Shop Website</a></h3>
+                <p>Discover rare, handcrafted treasures—personalized gifts that celebrate moments, spark joy, and leave lasting impressions.</p>
             </div>
             <div class="project-card">
-                <h3>Project 3</h3>
-                <p>A personal blog platform with a custom CMS using Node.js.</p>
+                <h3><a href="https://github.com/Anisha-0401/Movie_Recommendation_System.git" target="_blank">Movie recommendation System</a></h3>
+                <p>Personalized movie recommendations powered by AI to match your preferences.</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+                <h3><a href="https://github.com/Anisha-0401/Age-and-Gender_Detection.git" target="_blank">Age and Gender Detection</a></h3>
+                <p>Advanced AI technology accurately analyzes facial features to determine a person’s gender and age instantly</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+                <h3><a href="https://github.com/Anisha-0401/Glide_Gesture-Virtual-Keyboard-and-Mouse.git" target="_blank">Glide Gesture-Virtual Keyboard and Mouse</a></h3>
+                <p>Real-time hand gesture control system using AI to manage cursor, volume, brightness, and scrolling effortlessly.</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+                <h3><a href="https://github.com/Anisha-0401/Legal_Document_Summarizer.git" target="_blank">Legal document Summarizer</a></h3>
+                <p>AI-powered tool that quickly extracts and summarizes key points from complex legal documents accurately.</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+                <h3><a href="https://github.com/Anisha-0401/YouTube_comment_analyzer.git" target="_blank">YouTube Comment Analyzer</a></h3>
+                <p>Unlock the story behind YouTube comments—analyze sentiment, trends ,audience sentiment, key trends and engagement patterns.</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+                <h3><a href="https://github.com/Anisha-0401/Text_Analyzer.git" target="_blank">Text Analyser</a></h3>
+                <p>Advanced text analyzer that extracts insights, detects sentiment, and summarizes content for smarter understanding.</p>
             </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A task management app with React and Firebase integration.</p>
+             <div class="project-card">
+                <h3><a href="https://github.com/Anisha-0401/Poem_Generator.git" target="_blank">Poem Generator</a></h3>
+                <p>Generates beautiful, unique poems inspired by your mood, style, and creative preferences instantly.</p>
             </div>
         </div>
     </section>
 
     <!-- Certificates Section -->
     <section id="certificates">
-        <h2>My Certificates</h2>
-        <p>You can Checkout my Certificates using the Following Link</p>
+        <h2>Certificates</h2>
         <div class="certificate-grid">
             <div class="certificate-card">
-                <h3>Data Visualisation: Empowering Business with Effective Insights (Tata/Forage)</h3>
-                <p>"Learned to visualise data for actionable business insights with Tata and Forage."</p>
+                <h3><a href="https://github.com/Anisha-0401/Portfolio/blob/8033d17b81720938c0d6b65c0ddfb223f634371a/Certificates/Data%20Visualization-TATA%20Group.jpeg" target="_blank">TATA Data Visualisation</a></h3>
+                <p>Learned to visualise data for actionable business insights with Tata and Forage.</p>
             </div>
             <div class="certificate-card">
-                <h3>Generative AI (SAWIT.AI Learnathon)</h3>
-                <p>"Studied foundational Generative AI techniques through SAWIT.AI Learnathon."</p>
+                <h3><a href="https://github.com/Anisha-0401/Portfolio/blob/8033d17b81720938c0d6b65c0ddfb223f634371a/Certificates/Introduction%20to%20DBMS.pdf" target="_blank">Introduction to Database Management Systems</a></h3>
+                <p>Completed foundational knowledge of database concepts, design, and SQL for effective data management.</p>
             </div>
             <div class="certificate-card">
-                <h3>Certificate Course in Python (CSC Computer Education)</h3>
-                <p>"Learned python programming basics, including functions, modules, and file handling."</p>
+                <h3><a href="https://github.com/Anisha-0401/Portfolio/blob/8033d17b81720938c0d6b65c0ddfb223f634371a/Certificates/Python%20for%20Data%20Science.pdf" target="_blank">Python for Data Science</a></h3>
+                <p>Studied Python for data science, focusing on analysis and visualization techniques.</p>
             </div>
             <div class="certificate-card">
-                <h3>Introduction to Database Management Systems (Udemy)</h3>
-                <p>"Completed a 1-hour Introduction to DBMS course on Udemy, December 2023."</p>
+                <h3><a href="https://github.com/Anisha-0401/Portfolio/blob/8033d17b81720938c0d6b65c0ddfb223f634371a/Certificates/Python.jpeg" target="_blank">Python</a></h3>
+                <p>Learned python programming basics, including functions, modules, and file handling.</p>
             </div>
             <div class="certificate-card">
-                <h3>Python for Data Science (NPTEL)</h3>
-                <p>"Studied Python for data science, focusing on analysis and visualization techniques."</p>
+                <h3><a href="https://github.com/Anisha-0401/Portfolio/blob/8033d17b81720938c0d6b65c0ddfb223f634371a/Certificates/SAWIT.AI%20Learnathon.jpeg" target="_blank">Generative AI (SAWIT.AI Learnathon)</a></h3>
+                <p>Studied foundational Generative AI techniques through SAWIT.AI Learnathon.</p>
             </div>
             <div class="certificate-card">
-                <h3>SQL for Data Science (Coursera/UC Davis)</h3>
-                <p>"Learned SQL for data science, focusing on querying and data analysis."</p>
+                <h3><a href="https://github.com/Anisha-0401/Portfolio/blob/8033d17b81720938c0d6b65c0ddfb223f634371a/Certificates/SQL%20for%20Data%20Science.pdf" target="_blank">SQL for Data Science</a></h3>
+                <p>Showcases proficiency in using SQL to extract, analyze, and manage data for data-driven decision-making in a scientific context.</p>
             </div>
-
         </div>
     </section>
-
-    <script>
-        // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const sectionId = this.getAttribute('href');
-                document.querySelector(sectionId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
